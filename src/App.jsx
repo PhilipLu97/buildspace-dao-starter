@@ -44,7 +44,10 @@ const App = () => {
     voteModule
     .getAll()
     .then((proposals) => {
-      setProposals(proposals);
+      setProposals(
+        proposals.filter((proposal) => {
+        return proposal.state === 1;
+      }));
       console.log("🌈 Proposals:", proposals)
     })
     .catch((err) => {
